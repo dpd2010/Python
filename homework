@@ -1,0 +1,10 @@
+mylist = []
+
+for x in range(0,24):
+    temp = int(input('enter a temperature in degrees: '))
+    mylist.append(temp)
+    
+num = 0
+for x in range(0,24):
+    print('todays  temperatures are : \n'+mylist[num], end = " ")
+    num = num+1
