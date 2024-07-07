@@ -2,29 +2,26 @@ def CtoF(degC):
     degF = (degC * 9/5) + 32
     return degF
 
-def getListMinIndex(list):
-    minI = list[0]
-    counter1 = 0
+def getListMin(list):
+    min = list[0]
     for x in list:
-        if x < minI:
-            minI = x
-    index1 = index(minI)
-    return minI, index1
+        if x < min:
+            min = x
+    return min
 
-def getListMaxIndex(list):
-    maxI = list[0]
+def getListMax(list):
+    max = list[0]
     for y in list:
-        if y > maxI:
-            maxI = y
-    index2 = index(maxI)
-    return maxI, index2
+        if y > max:
+            max = y
+    return max
 
 def getListAverage(list):
     num_count = 0
     total = 0
     for z in list:
         total = total+z
-        num_count = numcount+1
+        num_count = num_count+1
 
     mean = total/num_count
     return mean
@@ -43,12 +40,14 @@ for t in temps:
     print(str(temperature)+'F')
     tempsFahrenheit.append(CtoF(t))
 
-hottest_temp, max = getListMaxIndex(tempsFahrenheit)
-coldest_temp, min = getListMinIndex(tempsFahrenheit)
+hottest_temp = getListMax(tempsFahrenheit)
+coldest_temp = getListMin(tempsFahrenheit)
 average = getListAverage(tempsFahrenheit)
+maxI = tempsFahrenheit.index(hottest_temp)
+minI = tempsFahrenheit.index(coldest_temp)
 
-coolest_time = times[min]
-hottest_time = times[max]
+coolest_time = times[minI]
+hottest_time = times[maxI]
 
 print('the hottest temperature of the day was',str(hottest_temp),'at',hottest_time)
 print('the coolest temperature of the day was',str(coldest_temp),'at',coolest_time)
