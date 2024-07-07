@@ -1,10 +1,55 @@
-mylist = []
+def CtoF(degC):
+    degF = (degC * 9/5) + 32
+    return degF
 
-for x in range(0,24):
-    temp = int(input('enter a temperature in degrees: '))
-    mylist.append(temp)
-    
-num = 0
-for x in range(0,24):
-    print('todays  temperatures are : \n'+str(mylist[num]), end = " ")
-    num = num+1
+def getListMinIndex(list):
+    minI = list[0]
+    counter1 = 0
+    for x in list:
+        if x < minI:
+            minI = x
+    index1 = index(minI)
+    return minI, index1
+
+def getListMaxIndex(list):
+    maxI = list[0]
+    for y in list:
+        if y > maxI:
+            maxI = y
+    index2 = index(maxI)
+    return maxI, index2
+
+def getListAverage(list):
+    num_count = 0
+    total = 0
+    for z in list:
+        total = total+z
+        num_count = numcount+1
+
+    mean = total/num_count
+    return mean
+
+times = ["12am", "1am ", "2am ", "3am ", "4am ", "5am ", "6am ", "7am ", "8am ", "9am ", "10am ", "11am ", "12pm ", "1pm ", "2pm ", "3pm ", "4pm ", "5pm ", "6pm ", "7pm ", "8pm ", "9pm ", "10pm ", "11pm "]
+
+temps = []
+for time in times:
+   temp = int(input(f'Enter the temperature in degrees at {time}: '))
+   temps.append(temp)
+
+print("today's temperatures in fahrenheit are:")
+tempsFahrenheit = []
+for t in temps:
+    temperature = CtoF(t)
+    print(str(temperature)+'F')
+    tempsFahrenheit.append(CtoF(t))
+
+hottest_temp, max = getListMaxIndex(tempsFahrenheit)
+coldest_temp, min = getListMinIndex(tempsFahrenheit)
+average = getListAverage(tempsFahrenheit)
+
+coolest_time = times[min]
+hottest_time = times[max]
+
+print('the hottest temperature of the day was',str(hottest_temp),'at',hottest_time)
+print('the coolest temperature of the day was',str(coldest_temp),'at',coolest_time)
+print('The average temperature for the day was',average,'degrees fahrenheit')
