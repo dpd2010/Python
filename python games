@@ -1,9 +1,10 @@
 import random
-wordlist = ['apple','banana','cherry']
+wordlist = ['apple','banana','cherry','cryptocurrency','spynx','hangman','quizzical','vexing','jazz']
 userlist = []
 wordname = []
 wordchange = []
 word = random.choice(wordlist)
+counter = 5
 
 for letters in word:
     wordname.append(letters)
@@ -11,8 +12,7 @@ for letters in word:
 
 for x in word:
     userlist.append(" ")
-
-counter = 5
+    
 
 print('hello and welcome to hangman!')
 print('you will have 5 lives in which you will have to guess the word')
@@ -21,6 +21,7 @@ print('if you guess an incorrect letter then you will lose a life')
 print('there might be the same letter appearing twice, in which case you will have to enter the letter twice!')
 print('goodluck')
 print(userlist)
+
 while 5>4:
     letter = input('enter a letter:')
     if letter in wordchange:
