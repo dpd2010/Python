@@ -4,7 +4,7 @@ userlist = []
 wordname = []
 wordchange = []
 word = random.choice(wordlist)
-counter = 5
+counter = 10
 
 for letters in word:
     wordname.append(letters)
